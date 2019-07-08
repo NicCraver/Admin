@@ -46,3 +46,32 @@
 .breadcrumb-leave-active {
   position: absolute;
 }
+
+@keyframes go {
+  0% {
+    margin-left: 210px;
+  }
+  30% {
+    margin-left: 100px;
+  }
+  60% {
+    margin-left: 80px;
+  }
+  100% {
+    margin-left: 64px;
+  }
+}
+@keyframes move {
+  0% {
+    margin-left: 64px;
+  }
+  30% {
+    margin-left: 100px;
+  }
+  60% {
+    margin-left: 180px;
+  }
+  100% {
+    margin-left: 210px;
+  }
+}

@@ -3,7 +3,7 @@
 @import "./layout/index.sass";
 @import './transition.scss';
 // @import './mixin.scss';
-// @import './sidebar.scss';
+@import './sidebar.scss';
 
 body {
   height: 100%;
@@ -63,6 +63,15 @@ div:focus {
 }
 
 // main-container global css
-.app-container {
-  // padding: 20px;
+// .app-container {
+// padding: 20px;
+// }
+.app_container {
+  transition: margin-left .28s;
+  margin-left: 210px;
+}
+
+.app_container1 {
+  transition: margin-left .28s;
+  margin-left: 64px;
 }

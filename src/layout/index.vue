@@ -1,38 +1,38 @@
 <template>
   <div class="layout">
-    <el-container style="height: 100%; border: 1px solid #3c4155">
-      <el-aside width="201px" style="background-color: rgb(238, 241, 246)">
-        <Sidebar />
+    <el-container style="height: 100%;">
+      <el-aside width="auto">
+        <Sidebar :class="isCollapse? 'sidebar-container1' : 'sidebar-container'" />
       </el-aside>
-      <el-container class="container_Navbar">
+      <el-container>
         <el-header height="50">
           <Navbar />
         </el-header>
-
-        <el-main>
+        <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
           <AppMain />
+          <!-- 15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
+          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br> -->
         </el-main>
       </el-container>
     </el-container>
-
-    <!-- <el-container>
-      <el-aside width="200px">
-        <Sidebar />
-      </el-aside>
-      <el-container>
-        <el-header>
-          <Navbar />
-        </el-header>
-        <el-main>
-          <AppMain />
-        </el-main>
-        <el-footer>Footer</el-footer>
-      </el-container>
-    </el-container> -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Sidebar from "./components/Sidebar/index";
 import Navbar from "./components/Navbar";
 import AppMain from "./components/AppMain";
@@ -51,7 +51,13 @@ export default {
   mounted() {},
   methods: {},
   watch: {},
-  computed: {}
+  computed: {
+    ...mapGetters(["sidebar"]),
+    isCollapse() {
+      console.log("this.sidebar", this.sidebar);
+      return !this.sidebar;
+    }
+  }
 };
 </script>
 
@@ -60,62 +66,12 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  .container_Navbar {
-    .el-header {
-      background-color: #b3c0d1;
-      color: #333;
-      text-align: right;
-      font-size: 12px;
-      padding: 0;
-    }
-    .el-aside {
-      color: #333;
-    }
+  .el-header {
+    // background-color: #b3c0d1;
+    // color: #333;
+    text-align: right;
+    font-size: 12px;
+    padding: 0;
   }
 }
-// layout
-// .layout {
-//   padding: 0;
-//   height: 100%;
-//   box-sizing: border-box;
-//   .el-header,
-//   .el-footer {
-//     background-color: #b3c0d1;
-//     color: #333;
-//     text-align: center;
-//     // line-height: 60px;
-//     padding: 0;
-//     height: 100%;
-//   }
-
-//   .el-aside {
-//     background-color: #d3dce6;
-//     color: #333;
-//     text-align: center;
-//     height: 100%;
-//     padding: 0;
-//   }
-
-//   .el-main {
-//     background-color: #e9eef3;
-//     color: #333;
-//     text-align: center;
-//     padding: 0;
-//     height: 100%;
-//     // line-height: 160px;
-//   }
-// }
-
-// body > .el-container {
-//   margin-bottom: 40px;
-// }
-
-// .el-container:nth-child(5) .el-aside,
-// .el-container:nth-child(6) .el-aside {
-//   line-height: 260px;
-// }
-
-// .el-container:nth-child(7) .el-aside {
-//   line-height: 320px;
-// }
 </style>
