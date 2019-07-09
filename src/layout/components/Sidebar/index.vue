@@ -1,9 +1,38 @@
 <template>
   <div>
+    <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg" :text-color="variables.menuText" :unique-opened="false" :active-text-color="variables.menuActiveText" :collapse-transition="false" mode="vertical">
-        <sidebar-item :routes="routes"></sidebar-item>
-        <!-- <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" /> -->
+      <el-menu :default-active="activeMenu" :collapse="isCollapse"
+       :background-color="variables.menuBg" 
+       :text-color="variables.menuText" 
+       :unique-opened="true" 
+       :active-text-color="variables.menuActiveText" 
+       :collapse-transition="false" 
+       mode="vertical">
+        <template v-for="(item,index) in routes" v-if="!item.hidden">
+          <router-link v-if="item.children.length===1 && !item.children[0].children" :to="item.path+'/'+item.children[0].path" :key="item.children[0].name">
+            <el-menu-item :index="item.path+'/'+item.children[0].path">
+              <i class="el-icon-location"></i>
+              <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
+            </el-menu-item>
+          </router-link>
+          <el-submenu v-else ref="subMenu" :index="item.name||item.path" :key="item.name" popper-append-to-body>
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span slot="title">{{item.meta.title}}</span>
+            </template>
+            <template v-for="child in item.children" v-if="!child.hidden">
+              <!-- <sidebar-item :is-nest="true" class="nest-menu" v-if="child.children&&child.children.length>0" :routes="[child]" :key="child.path">
+              </sidebar-item> -->
+              <router-link :to="item.path+'/'+child.path" :key="child.name">
+                <el-menu-item :index="item.path+'/'+child.path">
+                  <i class="el-icon-location"></i>
+                  <span v-if="child.meta&&child.meta.title">{{child.meta.title}}</span>
+                </el-menu-item>
+              </router-link>
+            </template>
+          </el-submenu>
+        </template>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -11,13 +40,15 @@
 
 <script>
 import { mapGetters } from "vuex";
-import SidebarItem from "./SidebarItem";
+import Logo from "./Logo";
 import variables from "@/styles/variables.scss";
 export default {
   name: "Sidebar",
-  components: { SidebarItem },
+  components: { Logo },
   data() {
-    return {};
+    return {
+      showLogo: true
+    };
   },
   created() {},
   mounted() {},
@@ -33,17 +64,14 @@ export default {
       const { meta, path } = route;
       // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
-        console.log("meta.activeMenu", meta.activeMenu);
         return meta.activeMenu;
       }
-      console.log("path", path);
       return path;
     },
     variables() {
       return variables;
     },
     isCollapse() {
-      console.log("this.sidebar", this.sidebar);
       return !this.sidebar;
     }
   }

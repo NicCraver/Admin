@@ -1,6 +1,5 @@
 @import "./element-ui.scss";
 @import "./variables.scss";
-@import "./layout/index.sass";
 @import './transition.scss';
 // @import './mixin.scss';
 @import './sidebar.scss';
@@ -66,12 +65,9 @@ div:focus {
 // .app-container {
 // padding: 20px;
 // }
-.app_container {
-  transition: margin-left .28s;
-  margin-left: 210px;
-}
 
-.app_container1 {
-  transition: margin-left .28s;
-  margin-left: 64px;
+
+.app_main {
+  background-color: #eff4e7;
+  height: 100%;
 }

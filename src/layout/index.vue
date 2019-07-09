@@ -10,21 +10,6 @@
         </el-header>
         <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
           <AppMain />
-          <!-- 15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br>
-          15黄金卡号地块拉升到卡时间段静安寺考虑到 <br> -->
         </el-main>
       </el-container>
     </el-container>
@@ -40,21 +25,36 @@ export default {
   name: "layout",
   components: { Sidebar, Navbar, AppMain },
   data() {
-    const item = {
-      date: "2016-05-02",
-      name: "王小虎",
-      address: "上海市普陀区金沙江路 1518 弄"
+    return {
+      screenWidth: document.documentElement.clientWidth, //屏幕宽度
+      screenHeight: document.documentElement.clientHeight, //屏幕高度
+      isTrue: false
     };
-    return { tableData: Array(20).fill(item) };
   },
   created() {},
-  mounted() {},
+  mounted() {
+    var _this = this;
+    window.onresize = function() {
+      // 定义窗口大小变更通知事件
+      _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
+      // console.log("_this.screenWidth", _this.screenWidth);
+      if (_this.screenWidth < 1000) {
+        _this.isTrue = true;
+      } else {
+        _this.isTrue = false;
+      }
+      if (_this.isTrue == true) {
+        if (_this.sidebar == true) {
+          _this.$store.dispatch("app/toggleSideBarFalse");
+        }
+      }
+    };
+  },
   methods: {},
   watch: {},
   computed: {
     ...mapGetters(["sidebar"]),
     isCollapse() {
-      console.log("this.sidebar", this.sidebar);
       return !this.sidebar;
     }
   }
@@ -67,11 +67,18 @@ export default {
   height: 100%;
   position: absolute;
   .el-header {
-    // background-color: #b3c0d1;
-    // color: #333;
     text-align: right;
     font-size: 12px;
     padding: 0;
   }
+}
+.app_container {
+  transition: margin-left 0.28s;
+  margin-left: 210px;
+}
+
+.app_container1 {
+  transition: margin-left 0.28s;
+  margin-left: 64px;
 }
 </style>

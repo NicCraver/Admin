@@ -1,14 +1,16 @@
 <template>
-  <div :class="isCollapse? 'Navbar1' : 'Navbar'">
+  <div :class="isCollapse? 'Navbar_move' : 'Navbar'">
     <hamburger :is-active="sidebar" class="hamburger-container" @toggleClick="toggleSideBar" />
-    <!-- <span class="Toggle_Button" ><i class="el-icon-s-unfold"></i> 王小虎</span> -->
-    <span style="margin-right: 15px">王小虎</span>
+    <breadcrumb class="breadcrumb-container" />
     <el-dropdown>
-      <i class="el-icon-setting"></i>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>查看</el-dropdown-item>
-        <el-dropdown-item>新增</el-dropdown-item>
-        <el-dropdown-item>删除</el-dropdown-item>
+      <div class="navbar_right">
+        <img class="navbar_img" src="../../assets/img/photo-1490013616775-3ca8865fb129.jpeg" alt="">
+        <span style="margin: 0 20px">Nic_</span>
+      </div>
+      <el-dropdown-menu slot="dropdown" show-timeout='0'>
+        <el-dropdown-item><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item>
+        <el-dropdown-item><i class="el-icon-s-tools"></i>账户设置</el-dropdown-item>
+        <el-dropdown-item><i class="el-icon-user-solid"></i>退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
@@ -17,9 +19,10 @@
 <script>
 import { mapGetters } from "vuex";
 import Hamburger from "./Hamburger/index";
+import Breadcrumb from './Breadcrumb/index';
 export default {
   name: "Navbar",
-  components: { Hamburger },
+  components: { Hamburger,Breadcrumb },
   data() {
     return {};
   },
@@ -34,7 +37,6 @@ export default {
   computed: {
     ...mapGetters(["sidebar"]),
     isCollapse() {
-      console.log("this.sidebar", this.sidebar);
       return !this.sidebar;
     }
   }
@@ -42,20 +44,21 @@ export default {
 </script>
 
 <style lang="scss">
+.breadcrumb-container {
+    float: left;
+  }
 .Navbar {
-  transition: margin-left .28s;
+  transition: margin-left 0.28s;
   margin-left: 210px;
-  padding-right: 20px;
   line-height: 50px;
   overflow: hidden;
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
-.Navbar1 {
-  transition: margin-left .28s;
+.Navbar_move {
+  transition: margin-left 0.28s;
   margin-left: 64px;
-  padding-right: 20px;
   line-height: 50px;
   overflow: hidden;
   position: relative;
@@ -69,5 +72,25 @@ export default {
   cursor: pointer;
   transition: background 0.3s;
   -webkit-tap-highlight-color: transparent;
+}
+.navbar_right:hover {
+  height: 50px;
+  padding-left: 15px;
+  cursor: hand;
+  cursor: pointer;
+  background: #fafafa;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.navbar_img {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 7px 0 0 0;
+  border-radius: 30px;
+  text-align: center;
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 </style>
