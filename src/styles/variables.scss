@@ -1,14 +1,28 @@
 // sidebar
 $menuText:#bfcbd9;
+// $menuText:rgba(0, 0, 0, .65);
 $menuActiveText:#409EFF;
+// $menuActiveText:rgb(44,101,241);
+// $menuActiveText:rgba(0, 0, 0, .65);
 $subMenuActiveText:#f4f4f5; //https://github.com/ElemeFE/element/issues/12951
-
+// $subMenuActiveText:rgba(0, 0, 0, .65);
 $menuBg:#304156;
+$menuBg:#304156;
+$menuBg:#304156;
+// $menuBg:#fff;
 $menuHover:#263445;
+$menuHover:#263445;
+$menuHover:#263445;
+// $menuHover:#000;
 
 $subMenuBg:#1f2d3d;
+$subMenuBg:#1f2d3d;
+$subMenuBg:#1f2d3d;
+// $subMenuBg:rgb(4,12,21);
 $subMenuHover:#001528;
-
+$subMenuHover:#001528;
+// $subMenuHover:#fff;
+// $subMenuHover:rgb(230,247,255);
 $sideBarWidth: 210px;
 
 // the :export directive is the magic sauce for webpack
