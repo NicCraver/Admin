@@ -9,7 +9,7 @@
           <Navbar />
         </el-header>
         <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
-          <AppMain />
+          <AppMain class="app_main" />
         </el-main>
       </el-container>
     </el-container>
@@ -33,24 +33,43 @@ export default {
   },
   created() {},
   mounted() {
-    var _this = this;
-    window.onresize = function() {
-      // 定义窗口大小变更通知事件
-      _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
-      // console.log("_this.screenWidth", _this.screenWidth);
-      if (_this.screenWidth < 1000) {
-        _this.isTrue = true;
+    this.DetectionScreenWidth();
+    this.ClientWidthChange();
+  },
+  methods: {
+    // 初始化时改变
+    DetectionScreenWidth() {
+      if (this.screenWidth < 1400) {
+        this.isTrue = true;
       } else {
-        _this.isTrue = false;
+        this.isTrue = false;
       }
-      if (_this.isTrue == true) {
-        if (_this.sidebar == true) {
-          _this.$store.dispatch("app/toggleSideBarFalse");
+      if (this.isTrue == true) {
+        if (this.sidebar == true) {
+          this.$store.dispatch("app/toggleSideBarFalse");
         }
       }
-    };
+    },
+    // 宽度变化时改变
+    ClientWidthChange() {
+      var that = this;
+      window.onresize = function() {
+        // 窗口大小变更时触发
+        that.screenWidth = document.documentElement.clientWidth; //窗口宽度
+        // console.log("that.screenWidth", that.screenWidth);
+        if (that.screenWidth < 1400) {
+          that.isTrue = true;
+        } else {
+          that.isTrue = false;
+        }
+        if (that.isTrue == true) {
+          if (that.sidebar == true) {
+            that.$store.dispatch("app/toggleSideBarFalse");
+          }
+        }
+      };
+    }
   },
-  methods: {},
   watch: {},
   computed: {
     ...mapGetters(["sidebar"]),
