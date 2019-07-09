@@ -1,5 +1,5 @@
 <template>
-  <div>DashboardDashboardDashboardDashboardDashboard</div>
+  <div class="app_main">DashboardDashboardDashboardDashboardDashboard</div>
 </template>
 
 <script>

@@ -12,7 +12,7 @@
         <template v-for="(item,index) in routes" v-if="!item.hidden">
           <router-link v-if="item.children.length===1 && !item.children[0].children" :to="item.path+'/'+item.children[0].path" :key="item.children[0].name">
             <el-menu-item :index="item.path+'/'+item.children[0].path">
-              <i class="el-icon-location"></i>
+              <i :class="item.children[0].meta.icon"></i>
               <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
             </el-menu-item>
           </router-link>
@@ -26,7 +26,7 @@
               </sidebar-item> -->
               <router-link :to="item.path+'/'+child.path" :key="child.name">
                 <el-menu-item :index="item.path+'/'+child.path">
-                  <i class="el-icon-location"></i>
+                  <i :class="child.meta.icon"></i>
                   <span v-if="child.meta&&child.meta.title">{{child.meta.title}}</span>
                 </el-menu-item>
               </router-link>
