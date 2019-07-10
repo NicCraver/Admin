@@ -2,16 +2,19 @@
   <div>
     <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse"
-       :background-color="variables.menuBg" 
-       :text-color="variables.menuText" 
-       :unique-opened="true" 
-       :active-text-color="variables.menuActiveText" 
-       :collapse-transition="false" 
-       mode="vertical">
+      <el-menu 
+      :default-active="activeMenu" 
+      :collapse="isCollapse"
+      :background-color="variables.menuBg" 
+      :text-color="variables.menuText" 
+      :unique-opened="true" 
+      :active-text-color="variables.menuActiveText" 
+      :collapse-transition="false" 
+      mode="vertical"
+      >
         <template v-for="(item,index) in routes" v-if="!item.hidden">
           <router-link v-if="item.children.length===1 && !item.children[0].children" :to="item.path+'/'+item.children[0].path" :key="item.children[0].name">
-            <el-menu-item :index="item.path+'/'+item.children[0].path">
+            <el-menu-item class="submenu-title-noDropdown" :index="item.path+'/'+item.children[0].path">
               <i :class="item.children[0].meta.icon"></i>
               <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
             </el-menu-item>
