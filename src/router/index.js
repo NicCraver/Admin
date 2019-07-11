@@ -24,19 +24,100 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'el-icon-my-medicalExamination' }
+      meta: { title: '首页', icon: 'el-icon-my-branchOffice' }
     }]
   },
   {
-    path: '/demo',
+    path: '/element',
     component: Layout,
-    redirect: '/demo1',
+    redirect: '/element',
     children: [{
-      path: 'demo1',
-      name: 'Demo1',
-      component: () => import('@/views/demo1/index'),
-      meta: { title: 'Demo', icon: 'el-icon-my-enterprise' }
+      path: 'element',
+      name: 'Element',
+      component: () => import('@/views/element/index'),
+      meta: { title: 'Element组件', icon: 'el-icon-my-element' }
     }]
+  },
+  {
+    path: '/menu1',
+    component: Layout,
+    redirect: '/menu1/doem1',
+    name: 'Menu1',
+    meta: { title: 'Menu1', icon: 'el-icon-my-medicalExamination' },
+    children: [
+      {
+        path: 'doem1',
+        name: 'Menu1Doem1',
+        component: () => import('@/views/menu1/demo1.vue'),
+        meta: { title: 'Menu1Doem1' }
+      },
+      {
+        path: 'doem2',
+        name: 'Menu1Doem2',
+        component: () => import('@/views/menu1/demo2.vue'),
+        meta: { title: 'Menu1Doem2' }
+      },
+      {
+        path: 'doem3',
+        name: 'Menu1Doem3',
+        component: () => import('@/views/menu1/demo3.vue'),
+        meta: { title: 'Menu1Doem3' }
+      },
+    ]
+  },
+  {
+    path: '/menu2',
+    component: Layout,
+    redirect: '/menu2/doem1',
+    name: 'Menu2',
+    meta: { title: 'Menu2', icon: 'el-icon-my-enterprise' },
+    children: [
+      {
+        path: 'doem1',
+        name: 'Menu2Doem1',
+        component: () => import('@/views/menu2/demo1.vue'),
+        meta: { title: 'Menu2Doem1' }
+      },
+      {
+        path: 'doem2',
+        name: 'Menu2Doem2',
+        component: () => import('@/views/menu2/demo2.vue'),
+        meta: { title: 'Menu2Doem2' }
+      },
+      {
+        path: 'doem3',
+        name: 'Menu2Doem3',
+        component: () => import('@/views/menu2/demo3.vue'),
+        meta: { title: 'Menu2Doem3' }
+      },
+    ]
+  },
+  {
+    path: '/menu3',
+    component: Layout,
+    redirect: '/menu3/doem1',
+    name: 'Menu3',
+    meta: { title: 'Menu3', icon: 'el-icon-my-overview' },
+    children: [
+      {
+        path: 'doem1',
+        name: 'Menu3Doem1',
+        component: () => import('@/views/menu3/demo1.vue'),
+        meta: { title: 'Menu3Doem1' }
+      },
+      {
+        path: 'doem2',
+        name: 'Menu3Doem2',
+        component: () => import('@/views/menu3/demo2.vue'),
+        meta: { title: 'Menu3Doem2' }
+      },
+      {
+        path: 'doem3',
+        name: 'Menu3Doem3',
+        component: () => import('@/views/menu3/demo3.vue'),
+        meta: { title: 'Menu3Doem3' }
+      },
+    ]
   },
 
   // {

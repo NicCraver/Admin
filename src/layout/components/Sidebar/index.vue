@@ -21,7 +21,7 @@
           </router-link>
           <el-submenu v-else ref="subMenu" :index="item.name||item.path" :key="item.name" popper-append-to-body>
             <template slot="title">
-              <i class="el-icon-menu"></i>
+              <i :class="item.meta.icon"></i>
               <span slot="title">{{item.meta.title}}</span>
             </template>
             <template v-for="child in item.children" v-if="!child.hidden">

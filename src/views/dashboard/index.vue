@@ -1,5 +1,8 @@
 <template>
-  <div>DashboardDashboardDashboardDashboardDashboard</div>
+  <div>
+    <el-alert title="首页" type="success">
+    </el-alert>
+  </div>
 </template>
 
 <script>

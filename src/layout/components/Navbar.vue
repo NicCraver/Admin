@@ -1,11 +1,12 @@
 <template>
   <div :class="isCollapse? 'Navbar_move' : 'Navbar'">
     <div class="navbar_top">
+      <!-- 收缩组件 -->
       <hamburger :is-active="sidebar" class="hamburger-container" @toggleClick="toggleSideBar" />
       <breadcrumb class="breadcrumb-container" />
       <el-dropdown>
         <div class="navbar_right">
-          <img class="navbar_img" src="../../assets/img/photo-1490013616775-3ca8865fb129.jpeg" alt="">
+          <img class="navbar_img" src="../../assets/img/logo.png" alt="">
           <span style="margin: 0 20px">Nic_</span>
         </div>
         <el-dropdown-menu slot="dropdown" show-timeout='0'>
@@ -35,6 +36,9 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <div v-show="false">
+      {{getTitle}}
+    </div>
   </div>
 </template>
 
@@ -47,21 +51,23 @@ export default {
   components: { Hamburger, Breadcrumb },
   data() {
     return {
-      pathArr: []
+      pathArr: [],
     };
   },
   created() {},
   mounted() {
-    console.log("getTitle :", this.getTitle);
+    // console.log("this.getTitle", this.getTitle);
   },
   methods: {
+    // 收缩方法
     toggleSideBar() {
       this.$store.dispatch("app/toggleSideBar");
     },
+    // 页签跳转方法
     goToPage(page) {
       this.$router.push(page);
     },
-    // 关闭标签按钮
+    // 关闭页签按钮
     link_close(index) {
       this.pathArr.splice(index, 1);
     },

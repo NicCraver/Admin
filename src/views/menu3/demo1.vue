@@ -1,12 +1,13 @@
 <template>
   <div>
-    <PageHeader title="Demo" />
+    <el-alert title="menu3-demo1" type="success">
+    </el-alert>
   </div>
 </template>
 
 <script>
 export default {
-  name: "demo1",
+  name: "",
   components: {},
   data() {
     return {};

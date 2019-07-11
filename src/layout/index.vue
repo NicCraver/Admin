@@ -2,13 +2,16 @@
   <div class="layout">
     <el-container style="height: 100%;">
       <el-aside width="auto">
+        <!-- 左侧菜单栏 -->
         <Sidebar :class="isCollapse? 'sidebar-container1' : 'sidebar-container'" />
       </el-aside>
       <el-container>
         <el-header height="50">
+          <!-- 导航栏 -->
           <Navbar />
         </el-header>
         <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
+          <!-- 主要内容 -->
           <AppMain class="app_main" />
         </el-main>
       </el-container>

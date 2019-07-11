@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: "/", //根路径
+  publicPath:'./',
   outputDir: "dist", //构建输出目录
   lintOnSave: false,
   devServer: {
