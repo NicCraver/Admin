@@ -17,16 +17,6 @@ router.beforeEach(async (to, from, next) => {
     // Cookies.remove("Admin-Token");
     NProgress.start()
     const hasToken = getToken()
-    // if (hasToken) {
-    //     next()
-    // } else {
-    //     if (to.path === '/login') { //这就是跳出循环的关键
-    //         next()
-
-    //     } else {
-    //         next('/login')
-    //     }
-    // }
     if (hasToken) {
         if (to.path === '/login') {
             console.log('if is logged in, redirect to the home page如果已登录，则重定向到主页')

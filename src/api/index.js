@@ -15,8 +15,9 @@ if (process.env.NODE_ENV == "development") {
 } else if (process.env.NODE_ENV == "debug") {
     axios.defaults.baseURL = "";
 } else if (process.env.NODE_ENV == "production") {
+    axios.defaults.baseURL = "https://www.easy-mock.com/mock/5d272d1c542916226c6bb8b0/api/";
     // axios.defaults.baseURL = "https://qrhealth.ihaozhuo.com/qrhealth";//生产开发环境
-    axios.defaults.baseURL = "https://whiot.ihaozhuo.com/qrhealth"; //武汉开发环境
+    // axios.defaults.baseURL = "https://whiot.ihaozhuo.com/qrhealth"; //武汉开发环境
     // axios.defaults.baseURL = "https://intsetemp.ihaozhuo.com/qrhealth"; //杭州测试 环境
 }
 // 获取Token

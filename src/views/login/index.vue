@@ -2,19 +2,15 @@
   <div class="login-container" :style="loginContainerStyle">
     <pointwave :color="0x097bdb" />
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">vue admin layout</h3>
       </div>
-
       <el-form-item prop="username">
-
         <span class="svg-container">
           <img src="../../assets/img/admin.png" alt="">
         </span>
         <el-input ref="username" v-model="loginForm.username" placeholder="Username" name="username" type="text" tabindex="1" auto-complete="on" />
       </el-form-item>
-
       <el-form-item prop="password">
         <span class="svg-container">
           <img src="../../assets/img/password2.png" alt="">
@@ -27,13 +23,12 @@
       </el-form-item>
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
+        <span style="margin-right:20px;">username: any</span>
         <span> password: any</span>
       </div>
     </el-form>
   </div>
 </template>
-
 <script>
 import Cookies from "js-cookie";
 import Pointwave from "@/components/Pointwave";
@@ -114,7 +109,7 @@ export default {
             .then(res => {
               console.log(res.data);
               Cookies.set("Admin-Token", "token!!!");
-              console.log('Cookies :', Cookies.get("Admin-Token"));
+              console.log("Cookies :", Cookies.get("Admin-Token"));
               this.loading = false;
               this.$router.push("/");
             })
