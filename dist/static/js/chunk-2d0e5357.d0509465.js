@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e5357"],{9406:function(e,t,n){"use strict";n.r(t);var s=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("el-alert",{attrs:{title:"首页",type:"success"}})],1)},a=[],c={name:"Dashboard",computed:{}},r=c,u=n("2877"),l=Object(u["a"])(r,s,a,!1,null,"1e4fd6ee",null);t["default"]=l.exports}}]);
