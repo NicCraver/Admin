@@ -68,16 +68,33 @@ div:focus {
 
 
 .app_main {
+  transition: left 0.28s;
   min-width: 860px;
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0 2px 12px 0 rgba（0, 0, 0, 10）;
   box-sizing: border-box;
   padding: 20px;
-  // overflow-y: auto;
-  // position: absolute;
-  // top: 100px;
-  // left: 190px;
-  // right: 0;
-  // bottom: 0%;
+  overflow-y: auto;
+  position: absolute;
+  top: 105px;
+  left: 230px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.app_main_move {
+  transition: left 0.28s;
+  min-width: 860px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba（0, 0, 0, 10）;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow-y: auto;
+  position: absolute;
+  top: 105px;
+  left: 85px;
+  right: 20px;
+  bottom: 20px;
 }

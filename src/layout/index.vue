@@ -12,7 +12,7 @@
         </el-header>
         <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
           <!-- 主要内容 -->
-          <AppMain class="app_main" />
+          <AppMain :class="isCollapse? 'app_main_move' : 'app_main'" />
         </el-main>
       </el-container>
     </el-container>
@@ -22,8 +22,8 @@
 <script>
 import { mapGetters } from "vuex";
 import Sidebar from "./components/Sidebar/index";
-import Navbar from "./components/Navbar";
-import AppMain from "./components/AppMain";
+import Navbar from "./Navbar";
+import AppMain from "./AppMain";
 export default {
   name: "layout",
   components: { Sidebar, Navbar, AppMain },

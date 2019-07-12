@@ -13,12 +13,23 @@
       mode="vertical"
       >
         <template v-for="(item,index) in routes" v-if="!item.hidden">
-          <router-link v-if="item.children.length===1 && !item.children[0].children" :to="item.path+'/'+item.children[0].path" :key="item.children[0].name">
-            <el-menu-item class="submenu-title-noDropdown" :index="item.path+'/'+item.children[0].path">
-              <i :class="item.children[0].meta.icon"></i>
-              <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
-            </el-menu-item>
-          </router-link>
+          <div v-if="item.path=='/'">
+            <router-link  :to="item.path" :key="item.children[0].name">
+              <el-menu-item class="submenu-title-noDropdown" :index="item.path+'/'+item.children[0].path">
+                <i :class="item.children[0].meta.icon"></i>
+                <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
+              </el-menu-item>
+            </router-link>
+          </div>
+          <div v-else-if="item.children.length===1 && !item.children[0].children">
+            <router-link  :to="item.path+'/'+item.children[0].path" :key="item.children[0].name">
+              <el-menu-item class="submenu-title-noDropdown" :index="item.path+'/'+item.children[0].path">
+                <i :class="item.children[0].meta.icon"></i>
+                <span slot="title" v-if="item.children[0].meta&&item.children[0].meta.title">{{item.children[0].meta.title}}</span>
+              </el-menu-item>
+            </router-link>
+          </div>
+          
           <el-submenu v-else ref="subMenu" :index="item.name||item.path" :key="item.name" popper-append-to-body>
             <template slot="title">
               <i :class="item.meta.icon"></i>

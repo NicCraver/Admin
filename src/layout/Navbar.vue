@@ -6,13 +6,15 @@
       <breadcrumb class="breadcrumb-container" />
       <el-dropdown>
         <div class="navbar_right">
-          <img class="navbar_img" src="../../assets/img/logo.png" alt="">
+          <img class="navbar_img" src="../assets/img/logo.png" alt="">
           <span style="margin: 0 20px">Nic_</span>
         </div>
         <el-dropdown-menu slot="dropdown" show-timeout='0'>
           <el-dropdown-item><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item>
           <el-dropdown-item><i class="el-icon-s-tools"></i>账户设置</el-dropdown-item>
-          <el-dropdown-item><i class="el-icon-user-solid"></i>退出登录</el-dropdown-item>
+          <span @click="SignOut">
+            <el-dropdown-item><i class="el-icon-user-solid"></i>退出登录</el-dropdown-item>
+          </span>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -43,15 +45,16 @@
 </template>
 
 <script>
+import Cookies from "js-cookie";
 import { mapGetters } from "vuex";
-import Hamburger from "./Hamburger/index";
-import Breadcrumb from "./Breadcrumb/index";
+import Hamburger from "./components/Hamburger";
+import Breadcrumb from "./components/Breadcrumb";
 export default {
   name: "Navbar",
   components: { Hamburger, Breadcrumb },
   data() {
     return {
-      pathArr: [],
+      pathArr: []
     };
   },
   created() {},
@@ -59,6 +62,14 @@ export default {
     // console.log("this.getTitle", this.getTitle);
   },
   methods: {
+    SignOut() {
+      console.log("退出登录");
+      Cookies.remove("Admin-Token"); //清除Cookies
+      Cookies.remove("sidebarStatus"); //菜单栏展开按钮
+
+      // resetRouter(); //清除路由
+      location.reload(); //不能省，强制跳到登陆页
+    },
     // 收缩方法
     toggleSideBar() {
       this.$store.dispatch("app/toggleSideBar");
