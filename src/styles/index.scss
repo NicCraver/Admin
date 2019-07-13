@@ -98,3 +98,31 @@ div:focus {
   right: 20px;
   bottom: 20px;
 }
+
+.dashboard_main_move {
+  transition: left 0.28s;
+  min-width: 860px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba（0, 0, 0, 10）;
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: absolute;
+  top: 105px;
+  left: 85px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.dashboard_main {
+  transition: left 0.28s;
+  min-width: 860px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba（0, 0, 0, 10）;
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: absolute;
+  top: 105px;
+  left: 230px;
+  right: 20px;
+  bottom: 20px;
+}

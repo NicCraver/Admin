@@ -4,12 +4,14 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 import ElementUI from "element-ui";
-
+import VCharts from 'v-charts'
 import "@/styles/index.scss"; // global css
 import "element-ui/lib/theme-chalk/index.css";
 import "./promission";
 import PageHeader from '@/components/PageHeader/index.js'//引用全局组件PageHeader
 
+import echarts from "echarts";
+Vue.prototype.$echarts = echarts;
 import api from "./api"; // 导入api接口
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
@@ -17,6 +19,7 @@ Vue.config.productionTip = false;
 
 Vue.use(PageHeader);//使用全局组件PageHeader
 Vue.use(ElementUI);
+Vue.use(VCharts)
 
 new Vue({
   router,

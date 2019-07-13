@@ -111,6 +111,7 @@ export default {
               Cookies.set("Admin-Token", "token!!!");
               console.log("Cookies :", Cookies.get("Admin-Token"));
               this.loading = false;
+              this.LoginMessage();
               this.$router.push("/");
             })
             .catch(err => {
@@ -148,7 +149,7 @@ export default {
         title: "欢迎",
         message: titleMessage + "欢迎回来！",
         type: "success",
-        offset: 50
+        offset: 40
       });
     }
   }

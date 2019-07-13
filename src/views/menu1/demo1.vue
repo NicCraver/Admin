@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-alert title="menu1-demo1" type="success">
+    <el-alert title="腾讯音视频测试" type="success">
     </el-alert>
     <div>
       <video id="localVideo" autoplay="" muted="" playsinline=""></video>
