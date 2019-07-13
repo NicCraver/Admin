@@ -41,7 +41,7 @@ export default {
     line-height: 30px;
     .box_title_left {
       float: left;
-      width: 80%;
+      width: 90%;
     }
     .box_title_right {
       float: right;
