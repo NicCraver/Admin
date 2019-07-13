@@ -57,10 +57,10 @@
       </Box>
       <Box :header="`下单率`" :description="`指标说明`">
         <div>
-          <div id="chartId" class="box_content">
+          <div class="box_content">
             76%
           </div>
-          <div class="chart_box">
+          <div id="chartId" class="chart_box">
             <div id='main3' ref="main" :style="{width:chartWidth,height:chartHeight}"></div>
           </div>
           <div class="box_footer">
