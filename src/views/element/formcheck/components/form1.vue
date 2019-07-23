@@ -1,15 +1,12 @@
 <template>
   <div>
-    <el-form :model="aaaaform" :rules="aaaaformrules" ref="aaaaform" label-width="120px" size="medium" class="demo-ruleForm">
-      <el-form-item label="名称" prop="aaaa">
-        <el-input v-model="aaaaform.aaaa"></el-input>
-      </el-form-item>
-      <el-form-item label="活动区域" prop="bbbb">
-        <el-input v-model="aaaaform.bbbb"></el-input>
+    <el-form :model="nameform" :rules="nameformrules" ref="nameform" label-width="120px" size="medium" class="demo-ruleForm">
+      <el-form-item label="测试" prop="name">
+        <el-input v-model="nameform.name" clearable></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
+        <el-button type="primary" @click="submitForm('nameform')">提交</el-button>
+        <el-button @click="resetForm('nameform')">重置</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -21,26 +18,23 @@ export default {
   data() {
     var validate = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请再次输入密码"));
+        callback(new Error("请输入"));
       } else if (/[\u4E00-\u9FA5]/g.test(value)) {
         callback(new Error("不能输入中文"));
+      } else if (/^ +| +$/g.test(value)) {
+        callback(new Error("不能输入空格"));
       } else {
         callback();
       }
     };
     return {
       //表单数据
-      aaaaform: {
-        aaaa: "",
-        bbbb: ""
+      nameform: {
+        name: ""
       },
       //表单规则
-      aaaaformrules: {
-        aaaa: [
-          { required: true, message: "请输入活动名称", trigger: "blur" },
-          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
-        ],
-        bbbb: [{ required: true, message: "请选择活动区域", trigger: "change" }]
+      nameformrules: {
+        name: [{ required: true, validator: validate, trigger: "blur" }]
       }
     };
   },
@@ -50,7 +44,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+          this.$message.success("submit!");
         } else {
           console.log("error submit!!");
           return false;

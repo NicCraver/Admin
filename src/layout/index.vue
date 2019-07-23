@@ -12,7 +12,7 @@
         </el-header>
         <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
           <!-- 主要内容 -->
-          <AppMain v-if="getTitle == '/dashboard'" :class="isCollapse? 'dashboard_main_move' : 'dashboard_main'"/>
+          <AppMain v-if="getTitle == '/dashboard'" :class="isCollapse? 'dashboard_main_move' : 'dashboard_main'" />
           <AppMain v-else :class="isCollapse? 'app_main_move' : 'app_main'" />
         </el-main>
       </el-container>
