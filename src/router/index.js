@@ -31,12 +31,22 @@ export const constantRoutes = [
     path: '/element',
     component: Layout,
     redirect: '/element',
-    children: [{
-      path: 'element',
-      name: 'Element',
-      component: () => import('@/views/element/index'),
-      meta: { title: 'Element组件', icon: 'el-icon-my-element' }
-    }]
+    name: 'Element',
+    meta: { title: 'Element组件', icon: 'el-icon-my-element' },
+    children: [
+      {
+        path: 'elementcomponent',
+        name: 'ElementComponent',
+        component: () => import('@/views/element/index'),
+        meta: { title: 'Element组件封装' }
+      },
+      {
+        path: 'formcheck',
+        name: 'FormCheck',
+        component: () => import('@/views/element/formcheck'),
+        meta: { title: '表单验证' }
+      }
+    ]
   },
   {
     path: '/menu1',
