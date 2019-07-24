@@ -3,6 +3,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 import Layout from '@/layout'
 
+import nestedRouter from './modules/nested'
+
 export const constantRoutes = [
   {
     path: '/login',
@@ -48,12 +50,13 @@ export const constantRoutes = [
       }
     ]
   },
+  // nestedRouter,
   {
-    path: '/menu1',
+    path: '/menu1doem',
     component: Layout,
-    redirect: '/menu1/doem1',
-    name: 'Menu1',
-    meta: { title: 'Menu1', icon: 'el-icon-my-medicalExamination' },
+    redirect: '/menu1doem/doem1',
+    name: 'Menu1doem',
+    meta: { title: 'Menu1doem', icon: 'el-icon-my-medicalExamination' },
     children: [
       {
         path: 'doem1',
@@ -76,11 +79,11 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/menu2',
+    path: '/menu2doem',
     component: Layout,
-    redirect: '/menu2/doem1',
-    name: 'Menu2',
-    meta: { title: 'Menu2', icon: 'el-icon-my-enterprise' },
+    redirect: '/menu2doem/doem1',
+    name: 'Menu2doem',
+    meta: { title: 'Menu2doem', icon: 'el-icon-my-enterprise' },
     children: [
       {
         path: 'doem1',
@@ -103,11 +106,11 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/menu3',
+    path: '/menu3doem',
     component: Layout,
-    redirect: '/menu3/doem1',
-    name: 'Menu3',
-    meta: { title: 'Menu3', icon: 'el-icon-my-overview' },
+    redirect: '/menu3doem/doem1',
+    name: 'Menu3doem',
+    meta: { title: 'Menu3doem', icon: 'el-icon-my-overview' },
     children: [
       {
         path: 'doem1',
@@ -129,7 +132,22 @@ export const constantRoutes = [
       },
     ]
   },
-
+  {
+    path: '/roles',
+    component: Layout,
+    redirect: '/roles/role',
+    alwaysShow: true,
+    name: 'Roles',
+    meta: { title: '权限管理', icon: 'el-icon-my-branchOffice' },
+    children: [
+      {
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/role/index'),
+        meta: { title: '角色' }
+      }
+    ]
+  },
   // {
   //   path: '/example',
   //   component: Layout,

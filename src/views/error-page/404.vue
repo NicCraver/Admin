@@ -19,9 +19,9 @@
           {{ message }}
         </div>
         <div class="bullshit__info">
-          1、您的操作权限不足。<br>
-          2、输入了错误的URL。<br>
-          很抱歉，若有疑问请联系管理员。
+          <span>1、您的操作权限不足。</span><br>
+          <span>2、输入了错误的URL。</span><br>
+          <span>很抱歉，若有疑问请联系管理员。</span>
         </div>
         <div class="bullshit__home">
           <div class="bullshit__return-home" @click="$router.back(-1);">
@@ -250,7 +250,10 @@ export default {
   .bullshit__info {
     padding: 20px 0 0 0;
     line-height: 24px;
-    font-size: 18px;
+    font-size: 16px;
+    span {
+      margin-top: 5px;
+    }
   }
   .bullshit_margin {
     margin-left: 20px;

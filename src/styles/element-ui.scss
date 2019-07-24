@@ -1,5 +1,21 @@
 // cover some element-ui styles
 
+.table {
+  margin: 20px 0;
+}
+
+.el-table .warning-row {
+  background: oldlace;
+}
+
+.el-table .success-row {
+  background: #f0f9eb;
+}
+
+.table .el-table th {
+  background: rgba(0, 0, 0, 0.04);
+}
+
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {
   font-weight: 400 !important;

@@ -221,19 +221,6 @@ export default {
     border-right: none;
   }
 }
-.table {
-  margin: 20px 0;
-}
-.el-table .warning-row {
-  background: oldlace;
-}
-
-.el-table .success-row {
-  background: #f0f9eb;
-}
-.el-table th {
-  background: rgba(0, 0, 0, 0.04);
-}
 .alert {
   float: right;
   margin-bottom: 20px;

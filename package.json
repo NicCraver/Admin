@@ -19,7 +19,6 @@
     "path-to-regexp": "^3.0.0",
     "sass-loader": "^7.1.0",
     "three": "^0.106.2",
-    "trtc-sdk": "^3.2.2",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

@@ -1,12 +1,15 @@
 <template>
   <div>
     <PageHeader title="表单验证" />
-    <BoxCard title="不能输入中文">
-      <form1></form1>
-    </BoxCard>
-    <BoxCard title="111">
-      <form1></form1>
-    </BoxCard>
+    <div class="form_wrap">
+      <BoxCard title="不能输入中文">
+        <form1></form1>
+      </BoxCard>
+      <BoxCard title="111">
+        <form1></form1>
+      </BoxCard>
+    </div>
+
   </div>
 </template>
 
@@ -27,4 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
+.form_wrap {
+  width: 600px;
+  margin: 50px auto;
+}
 </style>

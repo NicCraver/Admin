@@ -1,9 +1,5 @@
 <template>
   <div>
-    <div>
-
-      
-    </div>
     <div class="box_padding">
       <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -33,16 +29,16 @@ export default {
       input: "",
       PageHeader: `<PageHeader title="element" />`,
       Input: `<el-input v-model="input" maxlength="10" show-word-limit clearable placeholder="请输入内容"></el-input>`,
-       form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        }
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      }
     };
   },
   created() {},

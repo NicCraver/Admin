@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :model="nameform" :rules="nameformrules" ref="nameform" label-width="120px" size="medium" class="demo-ruleForm">
+    <el-form :model="nameform" :rules="nameformrules" ref="nameform" label-width="50px" size="medium" class="demo-ruleForm">
       <el-form-item label="测试" prop="name">
         <el-input v-model="nameform.name" clearable></el-input>
       </el-form-item>

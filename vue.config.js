@@ -35,7 +35,7 @@ module.exports = {
         hotOnly: true, // 热更新
         // host: "localhost",
         host: "0.0.0.0",
-        port: 9604, // 端口号
+        port: 9621, // 端口号
         https: false
     }
 }
