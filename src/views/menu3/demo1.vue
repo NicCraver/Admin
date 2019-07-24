@@ -75,7 +75,7 @@
     <!-- 表格 -->
     <div class="table">
       <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
-        <el-table-column prop="date" label="微信昵称" width="">
+        <el-table-column fixed prop="date" label="微信昵称" width="">
         </el-table-column>
         <el-table-column prop="date" label="用户手机号" width="">
         </el-table-column>
