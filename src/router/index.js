@@ -144,32 +144,17 @@ export const constantRoutes = [
         path: 'role',
         name: 'Role',
         component: () => import('@/views/role/index'),
-        meta: { title: '角色' }
+        meta: { title: '角色列表' }
+      },
+      {
+        path: 'addRole',
+        name: 'addRole',
+        hidden: true,
+        component: () => import('@/views/role/addRole/index'),
+        meta: { title: '新增/编辑角色' }
       }
     ]
   },
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'example' },
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () => import('@/views/tree/index'),
-  //       meta: { title: 'Tree', icon: 'tree' }
-  //     }
-  //   ]
-  // },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '404', hidden: true }
 ]

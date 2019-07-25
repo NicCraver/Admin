@@ -10,10 +10,11 @@
           <!-- 导航栏 -->
           <Navbar />
         </el-header>
-        <el-main :class="isCollapse? 'app_container1' : 'app_container'" class="container_Navbar">
+        <el-main>
           <!-- 主要内容 -->
-          <AppMain v-if="getTitle == '/dashboard'" :class="isCollapse? 'dashboard_main_move' : 'dashboard_main'" />
-          <AppMain v-else :class="isCollapse? 'app_main_move' : 'app_main'" />
+          <!-- <AppMain v-if="getTitle == '/dashboard'" :class="isCollapse? 'dashboard_main_move' : 'dashboard_main'" />
+          <AppMain v-else :class="isCollapse? 'app_main_move' : 'app_main'" /> -->
+          <AppMain :class="appmainclass" />
         </el-main>
       </el-container>
     </el-container>
@@ -84,6 +85,13 @@ export default {
     getTitle() {
       let matched = this.$route.matched;
       return matched[1].path;
+    },
+    appmainclass() {
+      if (this.getTitle == "/dashboard") {
+        return this.isCollapse ? "dashboard_main_move" : "dashboard_main";
+      } else {
+        return this.isCollapse ? "app_main_move" : "app_main";
+      }
     }
   }
 };
