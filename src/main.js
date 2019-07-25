@@ -17,6 +17,10 @@ Vue.prototype.$api = api; // 将api挂载到vue的原型上
 // 组件
 import PageHeader from '@/components/PageHeader/index.js'//引用全局组件PageHeader
 import BoxCard from '@/components/BoxCard/index.js'//引用全局组件PageHeader
+import QForm from '@/components/QueryForm/index.js'//引用全局组件PageHeader
+import QFormItem from '@/components/QueryFormItem/index.js'//引用全局组件PageHeader
+Vue.use(QFormItem);
+Vue.use(QForm);
 Vue.use(BoxCard);
 Vue.use(PageHeader);//使用全局组件PageHeader
 

@@ -1,55 +1,36 @@
 <template>
   <div>
-    <el-form label-width="130px" size="medium">
-      <div class="Query_Form">
-        <div class="Query_Box">
-          <el-form-item label="审批人审批人批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-        <div class="Query_Box">
-          <el-form-item label="审批人">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-          </el-form-item>
-        </div>
-      </div>
-    </el-form>
+    <q-form lw="100px">
+      <q-form-item label="审批批人">
+        <el-select v-model="value" placeholder="请选择">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+      <q-form-item label="审批批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </q-form-item>
+    </q-form>
     <el-row>
       <el-col :span="24">
-        <!-- <el-button class="Query_Button" icon="el-icon-search" type="primary" size="medium">查询</el-button>
-        <el-button class="Query_Button" icon="el-icon-search" type="primary" size="medium">查询</el-button>
-        <el-button class="Query_Button" icon="el-icon-search" type="primary" size="medium">查询</el-button>
-        <el-button class="Query_Button" icon="el-icon-search" type="primary" size="medium">查询</el-button> -->
         <div class="Query_Button">
           <el-button icon="el-icon-search" type="primary" size="medium">查询</el-button>
         </div>
@@ -72,7 +53,7 @@
     </el-row>
     <div>
       <div class="table">
-        <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName" size="medium">
+        <el-table :data="tableData" style="width: 100%" size="medium">
           <el-table-column fixed prop="date" label="微信昵称" width="">
           </el-table-column>
           <el-table-column prop="date" label="用户手机号" width="">
