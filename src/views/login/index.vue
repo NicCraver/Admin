@@ -104,20 +104,26 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true;
-          this.$api
-            .get("login")
-            .then(res => {
-              console.log(res.data);
-              Cookies.set("Admin-Token", "token!!!");
-              console.log("Cookies :", Cookies.get("Admin-Token"));
-              this.loading = false;
-              this.LoginMessage();
-              this.$router.push("/");
-            })
-            .catch(err => {
-              console.log("err", err);
-              this.loading = false;
-            });
+
+          Cookies.set("Admin-Token", "token!!!");
+
+          this.loading = false;
+
+          this.$router.push("/");
+          // this.$api
+          //   .get("login")
+          //   .then(res => {
+          //     console.log(res.data);
+          //     Cookies.set("Admin-Token", "token!!!");
+          //     console.log("Cookies :", Cookies.get("Admin-Token"));
+          //     this.loading = false;
+          //     this.LoginMessage();
+          //     this.$router.push("/");
+          //   })
+          //   .catch(err => {
+          //     console.log("err", err);
+          //     this.loading = false;
+          //   });
         } else {
           console.log("error submit!!");
           return false;
