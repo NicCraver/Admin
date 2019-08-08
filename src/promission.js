@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
             next()
             NProgress.done()
         } else {
-            console.log('da确定用户是否通过getInfo获取了他的权限角色')
+            console.log('确定用户是否通过getInfo获取了他的权限角色')
             next()
         }
     }

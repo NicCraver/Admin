@@ -96,6 +96,10 @@ export default {
   components: {},
   data() {
     return {
+      num1: 4,
+      num2: 5,
+      sumFromChild:0,
+      value: "",
       formInline: {
         user: "",
         region: ""
@@ -136,6 +140,9 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    receiveChildSum(sum){ //自定义事件，接收子组件的和
+      this.sumFromChild = sum;
+    },
     addRole() {
       this.$router.push("/roles/addRole");
     },

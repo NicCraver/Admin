@@ -10,6 +10,10 @@ import "element-ui/lib/theme-chalk/index.css";
 import "./promission";
 import echarts from "echarts";
 import api from "./api"; // 导入api接口
+
+import NicLib from 'niclib';
+// import 'niclib/src/styles/index.scss'
+Vue.use(NicLib);
 Vue.use(ElementUI);
 Vue.use(VCharts);
 Vue.prototype.$echarts = echarts;
@@ -23,6 +27,7 @@ Vue.use(QFormItem);
 Vue.use(QForm);
 Vue.use(BoxCard);
 Vue.use(PageHeader);//使用全局组件PageHeader
+
 
 Vue.config.productionTip = false;
 
