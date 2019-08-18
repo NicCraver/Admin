@@ -1,7 +1,7 @@
 <template>
   <div>
     <logo :collapse="isCollapse" />
-    <el-scrollbar wrap-class="scrollbar-wrapper">
+    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg" :text-color="variables.menuText" :unique-opened="true" :active-text-color="variables.menuActiveText" :collapse-transition="false" mode="vertical">
         <template v-for="(item,index) in routes" v-if="!item.hidden">
           <div v-if="item.path=='/'">
@@ -37,16 +37,20 @@
           </el-submenu>
         </template>
       </el-menu>
-    </el-scrollbar>
-    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg" :text-color="variables.menuText" :unique-opened="false" :active-text-color="variables.menuActiveText" :collapse-transition="false" mode="vertical">
-        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+    </el-scrollbar>-->
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <!-- :default-active="$router.constantRoutes.path" -->
+      <el-menu class="el-menu-slide" router>
+        <sidebar-item :routers="routes" />
+        <!-- <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg" :text-color="variables.menuText" :unique-opened="false" :active-text-color="variables.menuActiveText" :collapse-transition="false" mode="vertical">
+        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />-->
       </el-menu>
-    </el-scrollbar> -->
+    </el-scrollbar>
   </div>
 </template>
 
 <script>
+import { constantRoutes } from "../../../router";
 import { mapGetters } from "vuex";
 import Logo from "./Logo";
 import SidebarItem from "./SidebarItem";
@@ -60,17 +64,21 @@ export default {
     };
   },
   created() {},
-  mounted() {},
+  mounted() {
+    console.log("constantRoutes", constantRoutes);
+  },
   methods: {},
   watch: {},
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
-      console.log("this.$router.options.routes :", this.$router.options.routes);
-      return this.$router.options.routes;
+      // console.log("this.$router.options.routes :", this.$router.options.routes);
+      // return this.$router.options.routes;
+      return constantRoutes;
     },
     activeMenu() {
       const route = this.$route;
+      console.log("route :", route);
       const { meta, path } = route;
       // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
