@@ -18,7 +18,7 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "three": "^0.106.2",
+    "three": "^0.125.0",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
